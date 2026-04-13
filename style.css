@@ -499,13 +499,13 @@ button {
   /* タイトル */
   .testimonial-title {
     font-size: 4vw;
-    top: 7vh;
+    top: 5vh;
   }
 
   /* スライダー */
   .testimonial-slider {
-    top: 18vh;
-    height: 32vh;
+    top: 14vh;
+    height: 42vh;
   }
 
   /* カード: 2枚表示 */
@@ -515,7 +515,7 @@ button {
 
   .testimonial-card {
     width: 38vw;
-    height: 32vh;
+    height: 42vh;
   }
 
   .carousel-track {
@@ -533,7 +533,7 @@ button {
 
   /* ドット */
   .carousel-dots {
-    top: 53vh;
+    top: 59vh;
     gap: 2vw;
   }
 
@@ -545,7 +545,7 @@ button {
   /* メッセージ */
   .cta-message {
     bottom: auto;
-    top: 60vh;
+    top: 65vh;
     font-size: 3.2vw;
     text-align: center;
   }
@@ -554,7 +554,7 @@ button {
 
   /* CTAボタン */
   .testimonial-cta {
-    top: 72vh;
+    top: 78vh;
   }
 
   .btn-large {
