@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Deployment
+
+- **GitHub:** `https://github.com/sato-ryoichi-lp/sato-ryoichi-lp-` (branch: `main`)
+- **Vercel:** Connected to above repo. Push to `main` → auto-deploy.
+- To deploy changes: `git add . && git commit -m "message" && git push`
+
 ## Development Server
 
 ```bash
