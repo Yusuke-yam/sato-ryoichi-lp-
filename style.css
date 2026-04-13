@@ -421,7 +421,7 @@ button {
   .testimonial-section {
     position: relative;
     scroll-snap-align: start;
-    height: 72vh;
+    height: 100vh;
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -445,14 +445,14 @@ button {
     white-space: normal;
   }
 
-  /* 人物画像: 右下エリアに拡大配置 */
+  /* 人物画像: 右下エリアに配置（10%縮小・3cm下） */
   .hero-person {
-    width: 110vw;
-    height: 90vh;
+    width: 99vw;
+    height: 81vh;
     left: auto;
     right: -5vw;
     top: auto;
-    bottom: 0;
+    bottom: -3cm;
   }
 
   /* 見出し: 左揃え・2行表示 */
@@ -496,18 +496,16 @@ button {
      縦幅を要素が収まるサイズに拡張
      ━━━━━━━━━━━━━━━━━━━━━ */
 
-  /* testimonial-section は fixed 100vh のまま */
-
   /* タイトル */
   .testimonial-title {
-    font-size: 3.5vw;
-    top: 4vh;
+    font-size: 4vw;
+    top: 7vh;
   }
 
   /* スライダー */
   .testimonial-slider {
-    top: 11vh;
-    height: 25vh;
+    top: 18vh;
+    height: 32vh;
   }
 
   /* カード: 2枚表示 */
@@ -517,7 +515,7 @@ button {
 
   .testimonial-card {
     width: 38vw;
-    height: 25vh;
+    height: 32vh;
   }
 
   .carousel-track {
@@ -535,7 +533,7 @@ button {
 
   /* ドット */
   .carousel-dots {
-    top: 38vh;
+    top: 53vh;
     gap: 2vw;
   }
 
@@ -544,10 +542,10 @@ button {
     height: 1.5vw;
   }
 
-  /* メッセージ: カードの下、CTAの上に配置 */
+  /* メッセージ */
   .cta-message {
     bottom: auto;
-    top: 44vh;
+    top: 60vh;
     font-size: 3.2vw;
     text-align: center;
   }
@@ -556,13 +554,13 @@ button {
 
   /* CTAボタン */
   .testimonial-cta {
-    top: 51vh;
+    top: 72vh;
   }
 
   .btn-large {
-    width: 50vw;
-    height: 7vh;
-    font-size: 3.5vw;
+    width: 60vw;
+    height: 8vh;
+    font-size: 4vw;
     border-radius: 1.5vw;
   }
 }

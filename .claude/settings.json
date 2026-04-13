@@ -16,7 +16,8 @@
       "Bash(curl -s -o /tmp/person_check.png \"http://localhost:3845/assets/72034f7495119915b8171be8d43ecf979b229488.png?scale=2\")",
       "Bash(curl -s \"http://localhost:3845/\")",
       "Bash(curl -s \"http://localhost:3845/assets/\")",
-      "Bash(ipconfig getifaddr:*)"
+      "Bash(ipconfig getifaddr:*)",
+      "Bash(ls ~/.ssh/*.pub)"
     ],
     "additionalDirectories": [
       "/Users/yusukeyamamoto/Downloads/AI事業/icchi-lp/app",

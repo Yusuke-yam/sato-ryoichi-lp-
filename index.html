@@ -234,6 +234,17 @@
       if (diff > 0) showSection(current + 1);
       else          showSection(current - 1);
     }, { passive: true });
+
+    // モバイル: IntersectionObserverでセクション2のアニメーション発火
+    if (isMobile()) {
+      const mobileAnimEls = document.querySelectorAll('.testimonial-section .anim');
+      const mobileObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.1 });
+      mobileAnimEls.forEach(el => mobileObserver.observe(el));
+    }
   </script>
 
 </body>
