@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.figma.com)",
+      "mcp__figma-desktop__get_metadata",
+      "mcp__figma-desktop__get_screenshot",
+      "mcp__figma-desktop__get_design_context",
+      "Bash(mkdir -p \"/Users/yusukeyamamoto/Downloads/AI事業/いっちーLP/images\")",
+      "Bash(curl -s \"http://localhost:3845/assets/72034f7495119915b8171be8d43ecf979b229488.png\" -o \"/Users/yusukeyamamoto/Downloads/AI事業/いっちーLP/images/person.png\")",
+      "Bash(curl -s \"http://localhost:3845/assets/fc6dfffb24fdaf8ebc04328a76474e65ee10745d.svg\" -o \"/Users/yusukeyamamoto/Downloads/AI事業/いっちーLP/images/arrow.svg\")",
+      "Bash(open \"/Users/yusukeyamamoto/Downloads/AI事業/いっちーLP/index.html\")",
+      "Bash(npx create-next-app@latest icchi-lp --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(cp \"/Users/yusukeyamamoto/Downloads/AI事業/いっちーLP/images/person.png\" \"/Users/yusukeyamamoto/Downloads/AI事業/icchi-lp/public/person.png\")",
+      "Bash(cp \"/Users/yusukeyamamoto/Downloads/AI事業/いっちーLP/images/arrow.svg\" \"/Users/yusukeyamamoto/Downloads/AI事業/icchi-lp/public/arrow.svg\")",
+      "Bash(open http://localhost:3000)",
+      "Bash(curl -s -o /tmp/person_check.png \"http://localhost:3845/assets/72034f7495119915b8171be8d43ecf979b229488.png?scale=2\")",
+      "Bash(curl -s \"http://localhost:3845/\")",
+      "Bash(curl -s \"http://localhost:3845/assets/\")",
+      "Bash(ipconfig getifaddr:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/yusukeyamamoto/Downloads/AI事業/icchi-lp/app",
+      "/Users/yusukeyamamoto/Downloads/AI事業/icchi-lp",
+      "/Users/yusukeyamamoto/Downloads/AI事業/いっちーLP"
+    ]
+  }
+}

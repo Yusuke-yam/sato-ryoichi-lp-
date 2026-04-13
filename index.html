@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>佐藤 綾一 | 経営者 / ビジネスコーチ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Rubik:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== SECTION 1: HERO ========== -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-layer"></div>
+
+    <div class="hero-person">
+      <img src="images/profile-nobg.png" alt="佐藤 綾一" />
+    </div>
+
+    <div class="hero-headline">
+      <p>関わる全ての人に、</p>
+      <p>生きたいように生きている日常を</p>
+    </div>
+
+    <div class="hero-subtitle">
+      <p>誰かが勝手に作った世の中のルールに縛られ、<br class="sp-br">本来の自分の魅力を見失ってしまったあなたへ。</p>
+    </div>
+
+    <div class="hero-name-block">
+      <p class="hero-name">佐藤 綾一</p>
+      <p class="hero-role">経営者 / ビジネスコーチ</p>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 2: TESTIMONIALS ========== -->
+  <section class="testimonial-section">
+    <div class="testimonial-bg"></div>
+
+    <h2 class="testimonial-title anim">クライアントの方からいただいたお声の一部</h2>
+
+    <div class="testimonial-slider anim">
+
+      <button class="arrow-btn arrow-left" id="prevBtn" aria-label="前へ">
+        <svg viewBox="0 0 51 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 38.5L51 0V77L0 38.5Z" fill="white" fill-opacity="0.99"/>
+        </svg>
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="testimonial-card"><img src="顧客事例/S__54272056_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272058_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272059_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272060_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272061_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272062_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272064_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272072_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272073_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272075_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272078_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272079_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272080_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272082_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272084_0.jpg" alt="顧客事例" /></div>
+          <div class="testimonial-card"><img src="顧客事例/S__54272096_0.jpg" alt="顧客事例" /></div>
+        </div>
+      </div>
+
+      <button class="arrow-btn arrow-right" id="nextBtn" aria-label="次へ">
+        <svg viewBox="0 0 51 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M51 38.5L0 77V0L51 38.5Z" fill="white" fill-opacity="0.99"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <div class="carousel-dots anim" id="carouselDots"></div>
+
+    <p class="cta-message anim">人生にモヤモヤしている方、<br class="sp-br">必ず貢献できるので一度お話ししましょう</p>
+
+    <div class="testimonial-cta anim">
+      <a href="https://lin.ee/w4WeWbt" target="_blank" rel="noopener noreferrer" class="btn-gold btn-large" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;">　無料相談はこちら</a>
+    </div>
+  </section>
+
+  <script>
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  カルーセル
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    function isMobile() { return window.innerWidth <= 768; }
+    function cardsPerPage() { return isMobile() ? 2 : 4; }
+    function cardPx()  { return isMobile() ? window.innerWidth * 38 / 100 : window.innerWidth * 16.25 / 100; }
+    function gapPx()   { return isMobile() ? window.innerWidth * 4  / 100 : window.innerWidth * 2.25  / 100; }
+    function stepPx()     { return cardPx() + gapPx(); }
+    function pageStepPx() { return cardsPerPage() * stepPx(); }
+
+    const track  = document.getElementById('carouselTrack');
+    const prev   = document.getElementById('prevBtn');
+    const next   = document.getElementById('nextBtn');
+    const dotsEl = document.getElementById('carouselDots');
+
+    const originalCards = Array.from(track.querySelectorAll('.testimonial-card'));
+    const totalCards    = originalCards.length;
+    const totalPages    = Math.ceil(totalCards / cardsPerPage());
+
+    originalCards.slice(-cardsPerPage()).map(c => c.cloneNode(true))
+      .forEach(c => track.insertBefore(c, track.firstChild));
+    originalCards.slice(0, cardsPerPage()).map(c => c.cloneNode(true))
+      .forEach(c => track.appendChild(c));
+
+    let currentPage = 0;
+    let isCarouselAnimating = false;
+
+    function setPosition(page, animate) {
+      const offset = pageStepPx() + page * pageStepPx();
+      track.style.transition = animate ? 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+      track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function updateDots() {
+      dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === currentPage);
+      });
+    }
+
+    function goTo(page, animate = true) {
+      if (isCarouselAnimating) return;
+      isCarouselAnimating = true;
+      currentPage = page;
+      setPosition(currentPage, animate);
+      updateDots();
+    }
+
+    track.addEventListener('transitionend', () => {
+      const pages = Math.ceil(totalCards / cardsPerPage());
+      if (currentPage < 0) { currentPage = pages - 1; setPosition(currentPage, false); }
+      else if (currentPage >= pages) { currentPage = 0; setPosition(currentPage, false); }
+      updateDots();
+      isCarouselAnimating = false;
+    });
+
+    prev.addEventListener('click', () => goTo(currentPage - 1));
+    next.addEventListener('click', () => goTo(currentPage + 1));
+
+    for (let i = 0; i < totalPages; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `ページ ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    }
+
+    window.addEventListener('resize', () => setPosition(currentPage, false));
+    setPosition(0, false);
+    requestAnimationFrame(() => { isCarouselAnimating = false; });
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  セクション切り替え（スクロールでクロスフェード）
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    const heroSec  = document.querySelector('.hero-section');
+    const testSec  = document.querySelector('.testimonial-section');
+    const sections = [heroSec, testSec];
+    let current = 0;
+    let isSwitching = false;
+
+    function triggerSection2Anims() {
+      document.querySelectorAll('.testimonial-section .anim').forEach(el => {
+        el.classList.add('is-visible');
+      });
+    }
+
+    function showSection(index) {
+      if (isSwitching || index === current || index < 0 || index >= sections.length) return;
+      isSwitching = true;
+
+      const outEl = sections[current];
+      const inEl  = sections[index];
+      const dir   = index > current ? 1 : -1;
+
+      // セクション2に入るときアニメーション発火
+      if (index === 1) triggerSection2Anims();
+
+      // incoming を準備（裏に配置）
+      inEl.style.transition = 'none';
+      inEl.style.opacity    = '0';
+      inEl.style.transform  = `translateY(${dir * 40}px)`;
+      inEl.style.zIndex     = '10';
+      outEl.style.zIndex    = '9';
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          inEl.style.transition  = 'opacity 0.75s ease, transform 0.75s ease';
+          inEl.style.opacity     = '1';
+          inEl.style.transform   = 'translateY(0)';
+
+          outEl.style.transition = 'opacity 0.75s ease, transform 0.75s ease';
+          outEl.style.opacity    = '0';
+          outEl.style.transform  = `translateY(${dir * -40}px)`;
+        });
+      });
+
+      setTimeout(() => {
+        current = index;
+        isSwitching = false;
+      }, 800);
+    }
+
+    // ホイール（デスクトップのみ）
+    let wheelLast = 0;
+    window.addEventListener('wheel', (e) => {
+      if (isMobile()) return;
+      e.preventDefault();
+      const now = Date.now();
+      if (now - wheelLast < 900) return;
+      wheelLast = now;
+      if (e.deltaY > 0) showSection(current + 1);
+      else              showSection(current - 1);
+    }, { passive: false });
+
+    // タッチによるセクション切り替え（デスクトップのみ）
+    let touchY = 0;
+    window.addEventListener('touchstart', (e) => {
+      if (isMobile()) return;
+      touchY = e.touches[0].clientY;
+    }, { passive: true });
+    window.addEventListener('touchend', (e) => {
+      if (isMobile()) return;
+      const diff = touchY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) < 50) return;
+      if (diff > 0) showSection(current + 1);
+      else          showSection(current - 1);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

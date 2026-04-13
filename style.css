@@ -1,0 +1,568 @@
+/* =========================================
+   RESET & BASE
+   基準: 設計幅1600px / 設計高さ676px
+   1px(横) = 0.0625vw  /  1px(縦) = 0.14793vh
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #161c2d;
+  height: 100%;
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 初期状態：非表示（JSでクラス付与まで待機） */
+.anim {
+  opacity: 0;
+}
+
+/* Hero — ページ読み込み直後に自動発火 */
+.hero-section .hero-bg,
+.hero-section .hero-layer,
+.hero-section .hero-person,
+.hero-section .hero-headline,
+.hero-section .hero-subtitle,
+.hero-section .hero-name-block {
+  opacity: 0;
+  animation: fadeIn 1.0s ease 0.1s forwards;
+}
+
+/* Testimonial — スクロールで入ったときにJSがis-visibleを付与 */
+.testimonial-section .testimonial-title.anim.is-visible {
+  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0s forwards;
+}
+
+.testimonial-section .testimonial-slider.anim.is-visible {
+  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
+}
+
+.testimonial-section .carousel-dots.anim.is-visible {
+  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.25s forwards;
+}
+
+.testimonial-section .cta-message.anim.is-visible {
+  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.35s forwards;
+}
+
+.testimonial-section .testimonial-cta.anim.is-visible {
+  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.45s forwards;
+}
+
+/* =========================================
+   SECTION 1 — HERO  (100vw × 100vh)
+   ========================================= */
+.hero-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #a0a0a0;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0) 0%, #161c2d 99.539%);
+  mix-blend-mode: multiply;
+  z-index: 2;
+}
+
+.hero-layer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0) 0%, #161c2d 99.539%);
+  mix-blend-mode: multiply;
+  z-index: 3;
+}
+
+/* 人物写真: 833/1600=52.0625vw, -19/676=-2.81vh, 695/1600=43.4375vw, 695/676=102.81vh */
+.hero-person {
+  position: absolute;
+  left: 52.0625vw;
+  top: -2.81vh;
+  width: 43.4375vw;
+  height: 102.81vh;
+  z-index: 1;
+}
+
+.hero-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* 見出し: 88/1600=5.5vw, 180/676=26.63vh */
+.hero-headline {
+  position: absolute;
+  left: 5.5vw;
+  top: 26.63vh;
+  width: 77.69vw;
+  z-index: 10;
+  color: #ffffff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 3.75vw;       /* 60/1600 */
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.125vw;
+}
+
+.hero-headline p { display: block; }
+
+/* サブタイトル: 見出し下・赤枠位置 */
+.hero-subtitle {
+  position: absolute;
+  left: 5.5vw;
+  top: 48vh;
+  z-index: 10;
+  color: #ffffff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.25vw;      /* 20/1600 */
+  font-weight: 400;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
+}
+
+.hero-subtitle p { display: block; white-space: nowrap; }
+
+/* 名前・役職: 861/1600=53.8125vw, 478/676=70.71vh */
+.hero-name-block {
+  position: absolute;
+  left: 53.8125vw;
+  top: 70.71vh;
+  z-index: 10;
+}
+
+.hero-name {
+  font-size: 2vw;           /* 32/1600 */
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.0125vw;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 3.85vh;   /* 26/676 */
+}
+
+.hero-role {
+  font-size: 1.5vw;         /* 24/1600 */
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: -0.0125vw;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* =========================================
+   SECTION 2 — TESTIMONIALS  (100vw × 100vh)
+   ========================================= */
+.testimonial-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #a0a0a0;
+  z-index: 9;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.testimonial-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0) 0%, #161c2d 99.539%);
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+.testimonial-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0) 0%, #161c2d 99.539%);
+  mix-blend-mode: multiply;
+}
+
+/* タイトル: top 67/676=9.91vh, 28/1600=1.75vw */
+.testimonial-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 9.91vh;
+  text-align: center;
+  font-family: 'Rubik', 'Noto Sans JP', sans-serif;
+  font-size: 1.75vw;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01vw;
+  z-index: 2;
+}
+
+/* スライダー: top 193/676=28.55vh */
+.testimonial-slider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(28.55vh - 1cm);
+  height: 35.95vh;           /* 243/676 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* 矢印: 51/1600=3.1875vw, 77/676=11.39vh */
+.arrow-btn {
+  flex-shrink: 0;
+  width: 3.1875vw;
+  height: 11.39vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.arrow-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+.arrow-btn:hover { opacity: 1; }
+
+.arrow-left  { margin-right: 2.75vw; } /* 44/1600 */
+.arrow-right { margin-left:  2.75vw; }
+
+/* カルーセルビューポート: 4cards(16.25vw) + 3gaps(2.25vw) = 71.75vw */
+.carousel-viewport {
+  width: calc(16.25vw * 4 + 2.25vw * 3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2.25vw;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* カード: 260/1600=16.25vw, 200/676=29.59vh */
+.testimonial-card {
+  width: 16.25vw;
+  height: 29.59vh;
+  background: #ffffff;
+  border-radius: 4px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375vw;
+}
+
+.testimonial-card img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ドット: top 420/676=62.13vh */
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 62.13vh;
+  display: flex;
+  justify-content: center;
+  gap: 0.625vw;
+  z-index: 2;
+}
+
+.carousel-dot {
+  width: 0.5vw;
+  height: 0.5vw;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.carousel-dot.active {
+  background: #cdb218;
+  transform: scale(1.3);
+}
+
+/* CTAの1cm上のメッセージ */
+.cta-message {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100vh - 79.0vh + 0.5cm);
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.375vw; /* 22px @ 1600px幅 */
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  z-index: 2;
+}
+
+/* CTA: top 534/676=79.0vh */
+.testimonial-cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 79.0vh;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn-gold {
+  background-color: #cdb218;
+  color: #ffffff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  border-radius: 0.5vw;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btn-gold:hover { background-color: #b89f14; }
+
+/* 288/1600=18vw, 74/676=10.95vh, 24px=1.5vw */
+.btn-large {
+  width: 18vw;
+  height: 10.95vh;
+  font-size: 1.5vw;
+  letter-spacing: -0.0375vw;
+  line-height: 1.33;
+}
+
+/* スマホ専用改行 */
+.sp-br { display: none; }
+
+/* =========================================
+   MOBILE  (max-width: 768px)
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* モバイルはスクロール式に戻す */
+  html {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+
+  .hero-section {
+    position: relative;
+    scroll-snap-align: start;
+    height: 66.67vh;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    z-index: auto !important;
+  }
+
+  .testimonial-section {
+    position: relative;
+    scroll-snap-align: start;
+    height: 72vh;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    z-index: auto !important;
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━
+     SECTION 1 — HERO (mobile)
+     ━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* サブタイトル */
+  .hero-subtitle {
+    top: calc(5vh + 4.8vw * 1.5 * 2 + 1cm);
+    left: calc(5.5vw + 1cm);
+    font-size: 3.2vw;
+    line-height: 1.6;
+    width: 89vw;
+  }
+
+  .hero-subtitle p {
+    white-space: normal;
+  }
+
+  /* 人物画像: 右下エリアに拡大配置 */
+  .hero-person {
+    width: 110vw;
+    height: 90vh;
+    left: auto;
+    right: -5vw;
+    top: auto;
+    bottom: 0;
+  }
+
+  /* 見出し: 左揃え・2行表示 */
+  .hero-headline {
+    left: calc(5.5vw + 1cm);
+    right: auto;
+    width: 90vw;
+    top: 5vh;
+    text-align: left;
+    font-size: 4.8vw;
+    line-height: 1.5;
+    letter-spacing: -0.08vw;
+  }
+
+  /* 名前・役職: 左揃え */
+  .hero-name-block {
+    left: 5.5vw;
+    right: auto;
+    top: calc(34vh + 1.5cm);
+    text-align: left;
+  }
+
+  .hero-person img {
+    object-fit: contain;
+    object-position: bottom right;
+  }
+
+  .hero-name {
+    font-size: calc(5.5vw - 2px);
+    line-height: 1.4;
+    margin-bottom: 1.5vh;
+  }
+
+  .hero-role {
+    font-size: calc(5.5vw - 4px);   /* 名前より2px小さく */
+    line-height: 1.4;
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━
+     SECTION 2 — TESTIMONIALS (mobile)
+     縦幅を要素が収まるサイズに拡張
+     ━━━━━━━━━━━━━━━━━━━━━ */
+
+  /* testimonial-section は fixed 100vh のまま */
+
+  /* タイトル */
+  .testimonial-title {
+    font-size: 3.5vw;
+    top: 4vh;
+  }
+
+  /* スライダー */
+  .testimonial-slider {
+    top: 11vh;
+    height: 25vh;
+  }
+
+  /* カード: 2枚表示 */
+  .carousel-viewport {
+    width: calc(38vw * 2 + 4vw);
+  }
+
+  .testimonial-card {
+    width: 38vw;
+    height: 25vh;
+  }
+
+  .carousel-track {
+    gap: 4vw;
+  }
+
+  /* 矢印 */
+  .arrow-btn {
+    width: 5vw;
+    height: 8vh;
+  }
+
+  .arrow-left  { margin-right: 2vw; }
+  .arrow-right { margin-left:  2vw; }
+
+  /* ドット */
+  .carousel-dots {
+    top: 38vh;
+    gap: 2vw;
+  }
+
+  .carousel-dot {
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+
+  /* メッセージ: カードの下、CTAの上に配置 */
+  .cta-message {
+    bottom: auto;
+    top: 44vh;
+    font-size: 3.2vw;
+    text-align: center;
+  }
+
+  .sp-br { display: block; }
+
+  /* CTAボタン */
+  .testimonial-cta {
+    top: 51vh;
+  }
+
+  .btn-large {
+    width: 50vw;
+    height: 7vh;
+    font-size: 3.5vw;
+    border-radius: 1.5vw;
+  }
+}
